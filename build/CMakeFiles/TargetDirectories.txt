@@ -1,0 +1,3 @@
+/home/atissier/dphpc/Testing_selection_problems_HIGHS/build/CMakeFiles/solve.dir
+/home/atissier/dphpc/Testing_selection_problems_HIGHS/build/CMakeFiles/edit_cache.dir
+/home/atissier/dphpc/Testing_selection_problems_HIGHS/build/CMakeFiles/rebuild_cache.dir

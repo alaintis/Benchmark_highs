@@ -1,0 +1,3 @@
+/home/atissier/dphpc/benchmark_highs/build2/CMakeFiles/solve.dir
+/home/atissier/dphpc/benchmark_highs/build2/CMakeFiles/edit_cache.dir
+/home/atissier/dphpc/benchmark_highs/build2/CMakeFiles/rebuild_cache.dir
