@@ -117,22 +117,12 @@ double solveWithHighs(const Problem_csc& prob) {
         std::cout << "Failed to pass model to HiGHS" << std::endl;
         return 1; 
     }
-    for(int i=0; i<5; i++){
-        highs.run();
-        if (highs.getModelStatus() != HighsModelStatus::kOptimal) {
-        std::cout<< "HiGHS did not reach optimality" << std::endl;
-        return 1; 
-    }
-        highs.clearSolver();
-    }
-    std::vector<double> times;
-    for(int i=0; i<10; i++){
-        double t = run_once(highs);
-        times.push_back(t);
-        highs.clearSolver();
-    
-    }
-    
+
+    Timer timer;
+    timer.start();
+    highs.run(); 
+    double elapsed_time = timer.stop();
+    std::cout << "Elapsed time: " << elapsed_time << " ms" << std::endl;
 
     if (highs.getModelStatus() != HighsModelStatus::kOptimal) {
         std::cout<< "HiGHS did not reach optimality" << std::endl;
@@ -153,19 +143,7 @@ double solveWithHighs(const Problem_csc& prob) {
     //     }
     // }
     // Compute average time
-    std::sort(times.begin(), times.end());
-
-    double min_t = times.front();
-    double max_t = times.back();
-    double avg_t = std::accumulate(times.begin(), times.end(), 0.0) / times.size();
-    double median_t = times[times.size() / 2];
-
-    std::cout << "Benchmark results:\n";
-    std::cout << "  min    = " << min_t    << " s\n";
-    std::cout << "  median = " << median_t << " s\n";
-    std::cout << "  avg    = " << avg_t    << " s\n";
-    std::cout << "  max    = " << max_t    << " s\n";
-    
+   
 
     // Check result
   
