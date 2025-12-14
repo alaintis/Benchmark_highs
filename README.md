@@ -1,6 +1,20 @@
 # Benchmark_highs
 
 
+cd HiGHS
+rm -rf build
+mkdir build && cd build
+
+cmake .. \
+  -DCMAKE_INSTALL_PREFIX=$HOME/highs-install \
+  -DCMAKE_BUILD_TYPE=Release
+
+make -j
+make install
+
+
+
+
 
 ## Getting started
 
