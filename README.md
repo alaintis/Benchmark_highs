@@ -1,6 +1,6 @@
 # Benchmark_highs
 
-
+git clone https://github.com/ERGO-Code/HiGHS.git
 cd HiGHS
 rm -rf build
 mkdir build && cd build
