@@ -117,17 +117,54 @@ double solveWithHighs(const Problem_csc& prob) {
         std::cout << "Failed to pass model to HiGHS" << std::endl;
         return 1; 
     }
+    // warm-ups
+    // for (int i = 0; i < 5; ++i) {
+    //     highs.passModel(lp);
+    //     highs.run();
+    //     highs.clearSolver();
+    // }
 
-    Timer timer;
-    timer.start();
-    highs.run(); 
-    double elapsed_time = timer.stop();
-    std::cout << "Elapsed time: " << elapsed_time << " ms" << std::endl;
+    // timed runs
+    std::vector<double> times;
+    for (int i = 0; i < 1; ++i) {
+        highs.passModel(lp);
 
-    if (highs.getModelStatus() != HighsModelStatus::kOptimal) {
+        auto start = std::chrono::high_resolution_clock::now();
+        highs.run();
+        auto end = std::chrono::high_resolution_clock::now();
+        std::cout << "Objective value: " << std::setprecision(10) << highs.getInfo().objective_function_value << std::endl;
+
+        if (highs.getModelStatus() != HighsModelStatus::kOptimal) {
         std::cout<< "HiGHS did not reach optimality" << std::endl;
         return 1; 
     }
+        
+
+        times.push_back(
+            std::chrono::duration<double>(end - start).count()
+        );
+
+        highs.clearSolver();
+    }
+    std::sort(times.begin(), times.end());
+
+    double min_t = times.front();
+    double max_t = times.back();
+    double avg_t = std::accumulate(times.begin(), times.end(), 0.0) / times.size();
+    double median_t = times[times.size() / 2];
+
+    // std::cout << "Benchmark results:\n";
+    // std::cout << "  min    = " << min_t    << " s\n";
+    // std::cout << "  median = " << median_t << " s\n";
+    // std::cout << "  avg    = " << avg_t    << " s\n";
+    // std::cout << "  max    = " << max_t    << " s\n";
+    //for data collection in benchmarking scripts
+    //     std::cout << "START"<<std::endl;
+    double total_time = std::accumulate(times.begin(), times.end(), 0.0);
+    //std::cout << "START"<<std::endl;
+    //std::cout << total_time << "," << min_t << "," << median_t << "," << avg_t << "," << max_t << std::endl;
+    //std::cout << "END"<<std::endl;
+
 
     // // Solve
     // std::vector<double> times;
@@ -165,7 +202,7 @@ double solveWithHighs(const Problem_csc& prob) {
 double run_solver_test(const Problem_csc& p_csc, const std::string& problem_name) {
     std::cout << "Reading problem: " << problem_name << std::endl;
     double objective_value = solveWithHighs(p_csc);
-    std::cout << "Objective value: " << std::setprecision(10) << objective_value << std::endl;
+    //std::cout << "Objective value: " << std::setprecision(10) << objective_value << std::endl;
     return objective_value; // TEST PASSED
 
 

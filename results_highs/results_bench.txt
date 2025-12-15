@@ -1,0 +1,28 @@
+
+in seconds
+Reading problem: ../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/pilot.csc
+17.1537,1.71258,1.71558,1.71537,1.71726
+Reading problem: ../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/sc50b.csc
+0.00158788,0.00015448,0.000156609,0.000158788,0.000167894
+Reading problem: ../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/greenbeb.csc
+6.53834,0.649419,0.654115,0.653834,0.656549
+Reading problem: ../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/woodw.csc
+0.550261,0.0544788,0.0551281,0.0550261,0.0553551
+Reading problem: ../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/pilot87.csc
+96.5386,9.59593,9.61759,9.65386,9.95716
+Reading problem: ../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/scsd6.csc
+0.0713701,0.00695306,0.00716113,0.00713701,0.00728586
+Reading problem: ../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/afiro.csc
+0.00102498,9.9314e-05,0.000101797,0.000102498,0.000111184
+Reading problem: ../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/stair.csc
+HiGHS did not reach optimality
+Reading problem: ../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/degen2.csc
+0.185069,0.0182382,0.0185566,0.0185069,0.0186422
+Reading problem: ../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/scsd8.csc
+0.459556,0.0444838,0.0461103,0.0459556,0.0471027
+Reading problem: ../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/sc50a.csc
+0.00186621,0.000183209,0.000184655,0.000186621,0.000194239
+Reading problem: ../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/fit2d.csc
+19.011,1.89324,1.90259,1.9011,1.91351
+Reading problem: ../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/ship04l.csc
+0.0352597,0.00349445,0.00352781,0.00352597,0.00355041

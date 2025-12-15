@@ -3,7 +3,7 @@ set -e  # exit immediately on error
 
 # -------- Configuration --------
 BUILD_DIR=build2
-PROBLEM_DIR=../../dphpc-simplex-data/netlib/csc/presolved/selection_problems/
+PROBLEM_DIR=../../dphpc-simplex-data/netlib/csc/presolved/
 HIGHS_DIR=$HOME/highs-install/lib/cmake/highs
 ACCOUNT=dphpc
 TIME=00:10
@@ -42,12 +42,13 @@ SRUN_TIME="00:10"
 TIMEOUT="20s"
 
 RESULTS_DIR="results"
+mkdir -p "$RESULTS_DIR"
 LOGFILE="$RESULTS_DIR/full_log_highs.txt"
 OUTFILE="$RESULTS_DIR/results_highs.txt"
 
 MAX=100   # max number of problems (set large if you want all)
 
-mkdir -p "$RESULTS_DIR"
+
 
 ###############################################################################
 # Build
